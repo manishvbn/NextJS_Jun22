@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-app",
+  "version": "1.0.0",
+  "description": "Next JS Application Demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "Manish Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^12.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
