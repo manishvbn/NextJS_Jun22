@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CallbackAndMemoHookDemo from './CallbackAndMemoHookDemo';
 import ContextHookDemo from './ContextHookDemo';
 import EffectHookDemo from './EffectHookDemo';
 import ReducerAndContextHookDemo from './ReducerAndContextHookDemo';
@@ -17,6 +18,8 @@ function hRender(no) {
             return <ReducerHookDemo />;
         case 5:
             return <ReducerAndContextHookDemo />;
+        case 6:
+            return <CallbackAndMemoHookDemo />;
         default:
             return null;
     }
@@ -45,7 +48,7 @@ const HooksRoot = () => {
                         <button className='btn btn-primary' onClick={e => { setHookNo(5) }}>Reducer And Context Hook</button>
                     </div>
                     <div className='col'>
-                        <button className='btn btn-primary'>Callback and Memo Hook</button>
+                        <button className='btn btn-primary' onClick={e => { setHookNo(6) }}>Callback and Memo Hook</button>
                     </div>
                     <div className='col'>
                         <button className='btn btn-primary'>Ref Hook</button>
