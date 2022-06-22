@@ -18,15 +18,20 @@ class Hello extends React.Component {
         this.interval = setInterval(() => this.tick(), 1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render() {
-        return React.createElement('h1',
-            { className: 'orange' },
-            'Hello World from React ' + this.state.time
+        return (
+            <h1 className="orange">
+                Hello World From React {this.state.time}
+            </h1>
         );
     }
 }
 
 ReactDOM.render(
-    React.createElement(Hello, {}, null),
+    <Hello />,
     document.getElementById('app')
 );
