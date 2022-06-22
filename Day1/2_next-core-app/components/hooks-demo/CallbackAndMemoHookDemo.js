@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
+// It is a HOC, that prevents a component from re-rendering 
+// if the props (or values within it) have not changed.
 const Counter = React.memo(function (props) {
     console.log('Counter rendered : ', props.children);
     return (
@@ -21,6 +23,8 @@ function MyComponent() {
 
     const [number, setNumber] = useState(0);
 
+    // With useMemo(), we can return memoized values and avoid 
+    // re-rendering if the dependencies to a function have not changed.
     const data = useMemo(() => {
         return {
             name: "Manish"
