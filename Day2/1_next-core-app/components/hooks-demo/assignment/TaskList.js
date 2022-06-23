@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-
-const tasks = [
-    { id: 0, text: 'Developer Learning Path', done: true },
-    { id: 1, text: 'Visit office', done: false },
-    { id: 2, text: 'Drink Coffee', done: false }
-];
+import { useTasks, useTasksDispatch } from './TasksContext';
 
 const Task = ({ task }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const dispatch = useTasksDispatch();
+
     let taskContent;
 
     if (isEditing) {
@@ -16,7 +13,13 @@ const Task = ({ task }) => {
                 <input
                     value={task.text}
                     onChange={e => {
-                        
+                        dispatch({
+                            type: 'changed',
+                            task: {
+                                ...task,
+                                text: e.target.value
+                            }
+                        });
                     }} />
                 <button onClick={() => setIsEditing(false)}>
                     Save
@@ -37,11 +40,21 @@ const Task = ({ task }) => {
             <div className="form-check form-check-inline">
                 <input className="form-check-input" type="checkbox" checked={task.done}
                     onChange={e => {
-                        
+                        dispatch({
+                            type: 'changed',
+                            task: {
+                                ...task,
+                                done: e.target.checked
+                            }
+                        });
                     }} />
                 <label className="form-check-label">
                     <span className='me-3'>{taskContent}</span>
                     <i className="bi bi-x-square text-danger" role="button" onClick={() => {
+                        dispatch({
+                            type: 'deleted',
+                            id: task.id
+                        });
                     }}>
                         {" "}Delete
                     </i>
@@ -52,6 +65,7 @@ const Task = ({ task }) => {
 };
 
 const TaskList = () => {
+    const tasks = useTasks();
     return (
         <ul className='list-group-flush mt-4'>
             {tasks.map(task => (
