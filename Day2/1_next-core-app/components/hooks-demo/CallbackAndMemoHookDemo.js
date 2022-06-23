@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 // It is a HOC, that prevents a component from re-rendering 
 // if the props (or values within it) have not changed.
-const Counter = React.memo(function (props) {
+const Counter = React.memo(function Counter(props) {
     console.log('Counter rendered : ', props.children);
     return (
         <button onClick={props.handleClick}>

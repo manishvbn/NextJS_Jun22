@@ -21,6 +21,9 @@ const RootLayout = ({ children }) => {
                 <span className='me-3'>
                     <Link href="/fontpage">Font</Link>
                 </span>
+                <span className='me-3'>
+                    <Link href="/envdemo">Environment</Link>
+                </span>
             </div>
 
             <main>

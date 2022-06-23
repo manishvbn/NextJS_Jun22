@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function ImagePage() {
+export default function FontPage() {
     return (
         <>
             <style jsx global>{`
