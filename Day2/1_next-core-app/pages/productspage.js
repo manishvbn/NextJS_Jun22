@@ -53,16 +53,16 @@ export default function ProductsPage({ products }) {
 // API Call
 
 // SSG
-// export async function getStaticProps() {
-//     const res = await fetch('http://localhost:8001/products')
-//     const products = await res.json();
+export async function getStaticProps() {
+    const res = await fetch('http://localhost:8001/products')
+    const products = await res.json();
 
-//     return {
-//         props: {
-//             products
-//         }
-//     };
-// }
+    return {
+        props: {
+            products
+        }
+    };
+}
 
 // SSR
 // export async function getServerSideProps() {
@@ -89,14 +89,14 @@ export default function ProductsPage({ products }) {
 //     };
 // }
 
-export async function getStaticProps() {
-    const res = await fetch(process.env.PRODUCTS_URL)
-    const products = await res.json();
+// export async function getStaticProps() {
+//     const res = await fetch(process.env.PRODUCTS_URL)
+//     const products = await res.json();
 
-    return {
-        props: {
-            products
-        },
-        revalidate: 10
-    };
-}
+//     return {
+//         props: {
+//             products
+//         },
+//         revalidate: 10
+//     };
+// }
