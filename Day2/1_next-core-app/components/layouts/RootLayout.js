@@ -18,6 +18,9 @@ const RootLayout = ({ children }) => {
                 <span className='me-3'>
                     <Link href="/imagepage">Image</Link>
                 </span>
+                <span className='me-3'>
+                    <Link href="/fontpage">Font</Link>
+                </span>
             </div>
 
             <main>
