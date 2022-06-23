@@ -1,14 +1,25 @@
-import React from 'react';
+import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 
 const RootLayout = ({ children }) => {
     return (
         <div className="container">
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className='text-center'>
-                <Link href="/">Index</Link> {" "}
-                <Link href="/hooks">Hooks</Link>
+                <span className='me-3'>
+                    <Link href="/">Index</Link>
+                </span>
+                <span className='me-3'>
+                    <Link href="/hooks">Hooks</Link>
+                </span>
             </div>
-            {children}
+
+            <main>
+                {children}
+            </main>
         </div>
     );
 };
