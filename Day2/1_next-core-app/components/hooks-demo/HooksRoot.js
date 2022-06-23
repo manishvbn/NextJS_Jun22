@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Assignment from './assignment/Assignment';
 import CallbackAndMemoHookDemo from './CallbackAndMemoHookDemo';
 import ContextHookDemo from './ContextHookDemo';
+import CustomHookDemo from './CustomHookDemo';
 import EffectHookDemo from './EffectHookDemo';
 import ReducerAndContextHookDemo from './ReducerAndContextHookDemo';
 import ReducerHookDemo from './ReducerHookDemo';
@@ -24,6 +25,8 @@ function hRender(no) {
             return <CallbackAndMemoHookDemo />;
         case 7:
             return <RefHookDemo />;
+        case 8:
+            return <CustomHookDemo />;
         case 9:
             return <Assignment />;
         default:
@@ -60,7 +63,7 @@ const HooksRoot = () => {
                         <button className='btn btn-primary' onClick={e => { setHookNo(7) }}>Ref Hook</button>
                     </div>
                     <div className='col'>
-                        <button className='btn btn-primary'>Custom Hook</button>
+                        <button className='btn btn-primary' onClick={e => { setHookNo(8) }}>Custom Hook</button>
                     </div>
                     <div className='col'>
                         <button className='btn btn-primary' onClick={e => { setHookNo(9) }}>Assignment</button>

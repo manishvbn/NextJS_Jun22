@@ -56,7 +56,7 @@ const Counter = () => {
     return (
         <>
             <div className="text-center">
-                <h1 className="text-info">Using Function Syntax</h1>
+                <h1 className="text-info">Counter Component</h1>
             </div>
             <div className="d-grid gap-2 mx-auto col-6">
                 <div className="text-center">
@@ -89,11 +89,11 @@ const Counter = () => {
 
 const RefHookDemo = () => {
     return (
-        <div>
+        <>
             <h2>Ref Hook Demo</h2>
             {/* <AccessElement /> */}
             <Counter />
-        </div>
+        </>
     );
 };
 
