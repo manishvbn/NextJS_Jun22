@@ -63,9 +63,10 @@ function _delete(id) {
     // filter out deleted user and save
     users = users.filter(x => x.id.toString() !== id.toString());
     saveData();
+    
 }
 
 // private helper functions
 function saveData() {
-    fs.writeFileSync('../data/users.json', JSON.stringify(users, null, 4));
+    fs.writeFileSync('data/users.json', JSON.stringify(users, null, 4));
 }

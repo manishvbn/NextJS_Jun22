@@ -1,5 +1,7 @@
 import { usersRepo } from "../../../data-access/users-repo";
 
+export default handler;
+
 function handler(req, res) {
     switch (req.method) {
         case 'GET':
@@ -14,7 +16,7 @@ function handler(req, res) {
         const users = usersRepo.getAll();
         return res.status(200).json(users);
     }
-
+    
     function createUser() {
         try {
             usersRepo.create(req.body);
@@ -24,5 +26,3 @@ function handler(req, res) {
         }
     }
 }
-
-export default handler;
