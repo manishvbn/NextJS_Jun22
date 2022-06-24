@@ -49,7 +49,6 @@ export default function ProductsPage({ products }) {
 //     };
 // }
 
-
 // API Call
 
 // SSG
