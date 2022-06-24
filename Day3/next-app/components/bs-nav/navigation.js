@@ -50,6 +50,24 @@ const Navigation = () => {
                                 <span>Users</span>
                             </NavLink>
                         </li>
+                        <li className="nav-item px-3">
+                            <NavLink href="/posts" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
+                                <i className="bi bi-house-fill"></i>
+                                <span>Posts</span>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item px-3">
+                            <NavLink href="/dynamic" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
+                                <i className="bi bi-house-fill"></i>
+                                <span>Dynamic Imports</span>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item px-3">
+                            <NavLink href="/moduled" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
+                                <i className="bi bi-house-fill"></i>
+                                <span>Dynamic Modules</span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>
