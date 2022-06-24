@@ -44,6 +44,12 @@ const Navigation = () => {
                                 <span>Employees</span>
                             </NavLink>
                         </li>
+                        <li className="nav-item px-3">
+                            <NavLink href="/users" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
+                                <i className="bi bi-house-fill"></i>
+                                <span>Users</span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>
