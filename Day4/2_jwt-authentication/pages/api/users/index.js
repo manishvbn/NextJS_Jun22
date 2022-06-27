@@ -1,37 +1,24 @@
-import { usersRepo } from "../../../data-access/users-repo";
-import { withSessionRoute } from "../../../helpers";
+import { apiHandler } from '../../../helpers/api';
 
-export default withSessionRoute(async function (req, res) {
-    const user = req.session.user;
+// users in JSON file for simplicity, store in a db for production applications
+const users = require('../../../data/users.json');
 
-    if (user) {
-        return handler(req, res);
-    } else {
-        return res.status(401).json({ message: "Access Denied!" });
-    }
-});
+export default apiHandler(handler);
 
 function handler(req, res) {
     switch (req.method) {
         case 'GET':
             return getUsers();
-        case 'POST':
-            return createUser();
         default:
             return res.status(405).end(`Method ${req.method} Not Allowed`)
     }
 
     function getUsers() {
-        const users = usersRepo.getAll();
-        return res.status(200).json(users);
-    }
-
-    function createUser() {
-        try {
-            usersRepo.create(req.body);
-            return res.status(200).json({});
-        } catch (error) {
-            return res.status(400).json({ message: error });
-        }
+        // return users without passwords in the response
+        const response = users.map(user => {
+            const { password, ...userWithoutPassword } = user;
+            return userWithoutPassword;
+        });
+        return res.status(200).json(response);
     }
 }

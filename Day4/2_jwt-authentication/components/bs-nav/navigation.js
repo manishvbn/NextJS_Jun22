@@ -27,18 +27,6 @@ const Navigation = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item px-3">
-                            <NavLink href="/about" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
-                                <i className="bi bi-house-fill"></i>
-                                <span>About</span>
-                            </NavLink>
-                        </li>
-                        <li className="nav-item px-3">
-                            <NavLink href="/employees" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
-                                <i className="bi bi-house-fill"></i>
-                                <span>Employees</span>
-                            </NavLink>
-                        </li>
-                        <li className="nav-item px-3">
                             <NavLink href="/users" className="nav-link d-flex flex-column align-items-center" activeClassName={styles.active}>
                                 <i className="bi bi-house-fill"></i>
                                 <span>Users</span>
