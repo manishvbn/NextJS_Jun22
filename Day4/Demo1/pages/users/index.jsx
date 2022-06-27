@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 
 import { userService } from '../../services';
 
+import * as helpers from '../../helpers';
+
 export default function Employees() {
     const [users, setUsers] = useState([]);
 
@@ -93,3 +95,20 @@ export default function Employees() {
         </>
     )
 }
+
+export const getServerSideProps = helpers.withSessionSsr(async function ({ req, res }) {
+    const user = req.session.user;
+
+    if (user === undefined) {
+        res.setHeader("location", "/login?returnURL=users");
+        res.statusCode = 302;
+        res.end();
+        return { props: {} };
+    } else {
+        return {
+            props: {
+                    user: req.session.user
+            }
+        }
+    }
+})

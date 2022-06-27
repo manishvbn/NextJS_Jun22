@@ -5,6 +5,7 @@ let users = require('../data/users.json');
 export const usersRepo = {
     getAll,
     getById,
+    getByEmail,
     create,
     update,
     delete: _delete
@@ -16,6 +17,10 @@ function getAll() {
 
 function getById(id) {
     return users.find(x => x.id.toString() === id.toString());
+}
+
+function getByEmail(emailId) {
+    return users.find(x => x.email === emailId);
 }
 
 function create({ title, firstName, lastName, email, role, password }) {

@@ -1,6 +1,15 @@
 import { usersRepo } from "../../../data-access/users-repo";
+import { withSessionRoute } from "../../../helpers";
 
-export default handler;
+export default withSessionRoute(async function (req, res) {
+    const user = req.session.user;
+
+    if (user) {
+        return handler(req, res);
+    } else {
+        return res.status(401).json({ message: "Access Denied!" });
+    }
+});
 
 function handler(req, res) {
     switch (req.method) {
@@ -16,7 +25,7 @@ function handler(req, res) {
         const users = usersRepo.getAll();
         return res.status(200).json(users);
     }
-    
+
     function createUser() {
         try {
             usersRepo.create(req.body);
